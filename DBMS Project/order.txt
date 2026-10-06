@@ -1,0 +1,156 @@
+CREATE TABLE SAVANA_ORDERS (
+       ORDER_ID NUMBER(5) PRIMARY KEY,
+        CUSTOMER_ID NUMBER(5),
+        ORDER_DATE DATE NOT NULL,
+        TOTAL_AMOUNT NUMBER(10,2) NOT NULL,
+        ORDER_STATUS VARCHAR2(30),
+        CONSTRAINT FK_ORDER_CUSTOMER
+        FOREIGN KEY (CUSTOMER_ID)
+        REFERENCES CUSTOMER(CUSTOMER_ID)
+   );
+
+Table created.
+
+ CREATE TABLE SAVANA_ORDER_DETAILS (
+        ORDER_DETAIL_ID NUMBER(5) PRIMARY KEY,
+        ORDER_ID NUMBER(5),
+       PRODUCT_ID NUMBER(5),
+       QUANTITY NUMBER(5) NOT NULL,
+      UNIT_PRICE NUMBER(10,2) NOT NULL,
+       SUBTOTAL NUMBER(10,2) NOT NULL,
+       CONSTRAINT FK_DETAIL_ORDER
+        FOREIGN KEY (ORDER_ID)
+     REFERENCES SAVANA_ORDERS(ORDER_ID),
+       CONSTRAINT FK_DETAIL_PRODUCT
+       FOREIGN KEY (PRODUCT_ID)
+       REFERENCES SHOP_PRODUCT(PRODUCT_ID)
+   );
+
+Table created.
+
+
+ INSERT INTO SAVANA_ORDERS
+  2  VALUES
+  3  (1001, 101, TO_DATE('21-09-2026','DD-MM-YYYY'), 25998, 'Confirmed');
+
+1 row created.
+
+
+ INSERT INTO SAVANA_ORDERS
+  2  VALUES
+  3  (1002, 102, TO_DATE('21-09-2026','DD-MM-YYYY'), 1999, 'Shipped');
+
+1 row created.
+
+
+ INSERT INTO SAVANA_ORDERS
+  2  VALUES
+  3  (1003, 103, TO_DATE('20-09-2026','DD-MM-YYYY'), 1598, 'Delivered');
+
+1 row created.
+
+
+ COMMIT;
+
+Commit complete.
+
+ SELECT PRODUCT_ID, PRODUCT_NAME
+   FROM SHOP_PRODUCT;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+       101
+Wireless Headphones
+
+       106
+Bluetooth Speaker
+
+       107
+Casual Shirt
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+       108
+Face Wash
+
+       109
+Handbag
+
+       110
+Electric Kettle
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+       102
+Smart Watch
+
+       103
+Cotton Shirt
+
+       104
+Denim Jeans
+
+
+9 rows selected.
+
+ UPDATE SAVANA_ORDERS
+    SET TOTAL_AMOUNT = 26998
+    WHERE ORDER_ID = 1001;
+
+1 row updated.
+
+ UPDATE SAVANA_ORDERS
+    SET ORDER_DATE = TO_DATE('22-09-2026','DD-MM-YYYY')
+    WHERE ORDER_ID = 1001;
+
+1 row updated.
+
+ UPDATE SAVANA_ORDER_DETAILS
+    SET QUANTITY = 2,
+        SUBTOTAL = 15999 * 2
+    WHERE ORDER_DETAIL_ID = 1;
+
+0 rows updated.
+
+SELECT *
+FROM SAVANA_ORDER_DETAILS
+WHERE ORDER_DETAIL_ID = 1;
+
+ SELECT
+        O.ORDER_ID,
+        O.CUSTOMER_ID,
+       O.ORDER_DATE,
+       D.PRODUCT_ID,
+        D.QUANTITY,
+        D.UNIT_PRICE,
+       D.SUBTOTAL,
+      O.TOTAL_AMOUNT,
+       O.ORDER_STATUS
+   FROM SAVANA_ORDERS O
+   JOIN SAVANA_ORDER_DETAILS D
+   ON O.ORDER_ID = D.ORDER_ID
+   ORDER BY O.ORDER_DATE DESC;
+
+no rows selected
+
+SELECT
+       CUSTOMER_ID,
+        COUNT(ORDER_ID) AS TOTAL_ORDERS,
+        SUM(TOTAL_AMOUNT) AS TOTAL_PURCHASE_AMOUNT
+    FROM SAVANA_ORDERS
+    GROUP BY CUSTOMER_ID
+    ORDER BY CUSTOMER_ID;
+
+CUSTOMER_ID TOTAL_ORDERS TOTAL_PURCHASE_AMOUNT
+----------- ------------ ---------------------
+        101            1                 26998
+        102            1                  1999
+        103            1                  1598
