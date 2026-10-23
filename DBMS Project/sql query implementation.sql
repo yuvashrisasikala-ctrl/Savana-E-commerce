@@ -1,0 +1,841 @@
+SQL> SELECT * FROM PRODUCT;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY                                                PRICE      STOCK
+-------------------------------------------------- ---------- ----------
+         1
+Laptop
+Electronics                                             45000         10
+
+         2
+Shirt
+Fashion                                                   799         25
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY                                                PRICE      STOCK
+-------------------------------------------------- ---------- ----------
+
+         3
+Headphones
+Electronics                                              1500         15
+
+         4
+Shoes
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY                                                PRICE      STOCK
+-------------------------------------------------- ---------- ----------
+Footwear                                                 1999         20
+
+         5
+Watch
+Accessories                                              2500         12
+
+
+SQL> SELECT PRODUCT_ID, PRODUCT_NAME, PRICE, STOCK
+  2  FROM SHOP_PRODUCT;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+       101
+Wireless Headphones
+      1799         30
+
+       105
+Electric Kettle
+      1299         20
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+
+       106
+Bluetooth Speaker
+      1599         20
+
+       107
+Casual Shirt
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+       799         35
+
+       108
+Face Wash
+       499         15
+
+       109
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+Handbag
+      1299         10
+
+       110
+Electric Kettle
+      1199         18
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+       102
+Smart Watch
+      2999         15
+
+       103
+Cotton Shirt
+       899         40
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE      STOCK
+---------- ----------
+
+       104
+Denim Jeans
+      1499         30
+
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE PRICE < 1000;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       107
+Casual Shirt
+        102        799         35
+
+       108
+Face Wash
+        104        499         15
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       103
+Cotton Shirt
+          2        899         40
+
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE PRICE > 1000;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       101
+Wireless Headphones
+          1       1799         30
+
+       105
+Electric Kettle
+          3       1299         20
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       106
+Bluetooth Speaker
+        101       1599         20
+
+       109
+Handbag
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+        102       1299         10
+
+       110
+Electric Kettle
+        103       1199         18
+
+       102
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Smart Watch
+          1       2999         15
+
+       104
+Denim Jeans
+          2       1499         30
+
+
+7 rows selected.
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  ORDER BY PRICE ASC;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       108
+Face Wash
+        104        499         15
+
+       107
+Casual Shirt
+        102        799         35
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       103
+Cotton Shirt
+          2        899         40
+
+       110
+Electric Kettle
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+        103       1199         18
+
+       105
+Electric Kettle
+          3       1299         20
+
+       109
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Handbag
+        102       1299         10
+
+       104
+Denim Jeans
+          2       1499         30
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       106
+Bluetooth Speaker
+        101       1599         20
+
+       101
+Wireless Headphones
+          1       1799         30
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       102
+Smart Watch
+          1       2999         15
+
+
+10 rows selected.
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  ORDER BY PRICE DESC;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       102
+Smart Watch
+          1       2999         15
+
+       101
+Wireless Headphones
+          1       1799         30
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       106
+Bluetooth Speaker
+        101       1599         20
+
+       104
+Denim Jeans
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+          2       1499         30
+
+       109
+Handbag
+        102       1299         10
+
+       105
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Electric Kettle
+          3       1299         20
+
+       110
+Electric Kettle
+        103       1199         18
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       103
+Cotton Shirt
+          2        899         40
+
+       107
+Casual Shirt
+        102        799         35
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       108
+Face Wash
+        104        499         15
+
+
+10 rows selected.
+
+SQL> SELECT DISTINCT CATEGORY_ID
+  2  FROM SHOP_PRODUCT;
+
+CATEGORY_ID
+-----------
+          1
+          3
+        101
+        102
+        104
+        103
+          2
+
+7 rows selected.
+
+SQL> SELECT PRODUCT_ID, PRODUCT_NAME, PRICE
+  2  FROM SHOP_PRODUCT
+  3  WHERE PRICE BETWEEN 100 AND 400;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+       901
+Pen
+       150
+
+       902
+Book
+       250
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+
+       903
+Pencil
+       100
+
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE CATEGORY_ID = 2;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       901
+Pen
+          2        150         50
+
+       902
+Book
+          2        250         30
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       903
+Pencil
+          2        100         60
+
+       103
+Cotton Shirt
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+          2        899         40
+
+       104
+Denim Jeans
+          2       1499         30
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE CATEGORY_ID IN (1, 2, 3);
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       101
+Wireless Headphones
+          1       1799         30
+
+       105
+Electric Kettle
+          3       1299         20
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       901
+Pen
+          2        150         50
+
+       902
+Book
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+          2        250         30
+
+       903
+Pencil
+          2        100         60
+
+       102
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Smart Watch
+          1       2999         15
+
+       103
+Cotton Shirt
+          2        899         40
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       104
+Denim Jeans
+          2       1499         30
+
+
+8 rows selected.
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE PRICE BETWEEN 500 AND 2000;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       101
+Wireless Headphones
+          1       1799         30
+
+       105
+Electric Kettle
+          3       1299         20
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       106
+Bluetooth Speaker
+        101       1599         20
+
+       107
+Casual Shirt
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+        102        799         35
+
+       109
+Handbag
+        102       1299         10
+
+       110
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Electric Kettle
+        103       1199         18
+
+       103
+Cotton Shirt
+          2        899         40
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       104
+Denim Jeans
+          2       1499         30
+
+
+8 rows selected.
+
+SQL> SELECT *
+  2  FROM SHOP_PRODUCT
+  3  WHERE PRICE BETWEEN 500 AND 2000;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       101
+Wireless Headphones
+          1       1799         30
+
+       105
+Electric Kettle
+          3       1299         20
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+
+       106
+Bluetooth Speaker
+        101       1599         20
+
+       107
+Casual Shirt
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+        102        799         35
+
+       109
+Handbag
+        102       1299         10
+
+       110
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+Electric Kettle
+        103       1199         18
+
+       103
+Cotton Shirt
+          2        899         40
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+CATEGORY_ID      PRICE      STOCK
+----------- ---------- ----------
+       104
+Denim Jeans
+          2       1499         30
+
+
+8 rows selected.
+
+SQL> SELECT PRODUCT_ID, PRODUCT_NAME, PRICE
+  2  FROM SHOP_PRODUCT
+  3  ORDER BY PRICE DESC;
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+       102
+Smart Watch
+      2999
+
+       101
+Wireless Headphones
+      1799
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+
+       106
+Bluetooth Speaker
+      1599
+
+       104
+Denim Jeans
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+      1499
+
+       105
+Electric Kettle
+      1299
+
+       109
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+Handbag
+      1299
+
+       110
+Electric Kettle
+      1199
+
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+       103
+Cotton Shirt
+       899
+
+       107
+Casual Shirt
+       799
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+
+       108
+Face Wash
+       499
+
+       902
+Book
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+       250
+
+       901
+Pen
+       150
+
+       903
+
+PRODUCT_ID
+----------
+PRODUCT_NAME
+--------------------------------------------------------------------------------
+     PRICE
+----------
+Pencil
+       100
+
+
+13 rows selected.
+SQL> SELECT
+  2      CUSTOMER_ID,
+  3      COUNT(ORDER_ID) AS TOTAL_ORDERS
+  4  FROM SAVANA_ORDERS
+  5  GROUP BY CUSTOMER_ID;
+
+CUSTOMER_ID TOTAL_ORDERS
+----------- ------------
+        101            2
+        102            1
+        103            1
+
+SQL> SELECT
+  2      CUSTOMER_ID,
+  3      SUM(TOTAL_AMOUNT) AS TOTAL_PURCHASE_AMOUNT
+  4  FROM SAVANA_ORDERS
+  5  GROUP BY CUSTOMER_ID;
+
+CUSTOMER_ID TOTAL_PURCHASE_AMOUNT
+----------- ---------------------
+        101                 42997
+        102                  1999
+        103                  1598
